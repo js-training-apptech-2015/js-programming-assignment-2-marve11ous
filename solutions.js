@@ -30,3 +30,9 @@ function solution2(S) {
 	}
 	return stack.length === 0;
 }
+
+function solution3(A, F)
+{
+	var f = /\((.*)\)=>(.*)/.exec(F);
+	return A.map(new Function(f[1],'return '+f[2]));
+}
