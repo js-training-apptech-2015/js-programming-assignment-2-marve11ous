@@ -1,14 +1,15 @@
 function solution1(A)
 {
-	A.sort();
-	var min = 1;
-	for (var i=0; i<A.length; i++)
+	var B = [true], i;
+	for (i=0; i<A.length; i++)
 	{
-		if (A[i]<=0) continue;
-		if (A[i]>min) return min;
-		min++;
+    		if (A[i]>0) B[A[i]] = true;
 	}
-	return min;
+	for (i=0; i<B.length; i++)
+	{
+    		if (B[i] === undefined) break;
+	}
+	return i;
 }
 
 function solution2(S) {
@@ -17,7 +18,7 @@ function solution2(S) {
 	for(var i=0; i < S.length; i++) 
 	{
 		var pos = brackets.indexOf(S[i]);
-    if(pos === -1) continue;
+    		if(pos === -1) continue;
 		if(pos % 2 === 0)
 		{
 			stack.push(pos + 1);
